@@ -110,7 +110,7 @@
             android:key="fling_pulse_lavalamp_speed"
             android:title="@string/lavamp_solid_speed_title"
             android:max="30000"
-            settings:minimum="200"
+            settings:min="200"
             settings:unitsLeft=""
             settings:unitsRight="ms"
             android:persistent="false" />
@@ -135,7 +135,7 @@
             android:key="lavamp_solid_speed"
             android:title="@string/lavamp_solid_speed_title"
             android:max="30000"
-            settings:minimum="200"
+            settings:min="200"
             settings:unitsLeft=""
             settings:unitsRight="ms"
             settings:defaultVal="1000"
