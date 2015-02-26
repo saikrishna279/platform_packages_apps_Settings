@@ -1350,6 +1350,15 @@ public class SettingsActivity extends Activity
                         supported = (getPackageManager().getPackageInfo("com.vipercn.viper4android_v2", 0).versionCode >= 1);
                     } catch (PackageManager.NameNotFoundException e) {
                     }
+                      if (!supported) {
+                          removeTile = true;
+                     }
+                } else if (id == R.id.kernel_auditor) {
+                    boolean supported = false;
+                    try {
+                        supported = (getPackageManager().getPackageInfo("com.grarak.kerneladiutor", 0).versionCode > 0);
+                    } catch (PackageManager.NameNotFoundException e) {
+                    }
                     if (!supported) {
                         removeTile = true;
                     }
