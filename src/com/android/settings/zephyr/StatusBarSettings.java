@@ -10,6 +10,7 @@ import android.provider.Settings;
 
 import com.android.internal.logging.MetricsLogger;
 
+import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -23,6 +24,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment implements
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.status_bar_settings);
+
+        if (!DeviceUtils.deviceSupportsMobileData(getActivity())) {
+            removePreference("status_bar_carrier_label_settings");
+        }
     }
 
     @Override
