@@ -862,4 +862,8 @@
 
    <!-- Kernel Auditor -->
    <string name="kernel_tweaker">Performance</string>
+
+    <!-- Battery stats reset -->
+    <string name="battery_stats_reset">Reset stats</string>
+    <string name="battery_stats_message">Battery history stats are going to be reset</string>
 </resources>
