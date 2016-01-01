@@ -131,6 +131,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_floating_peek";
                 stringId = R.string.qs_tile_floating;
                 break;
+            case QSConstants.TILE_NFC:
+                resourceName = "ic_qs_nfc_on";
+                stringId = R.string.qs_tile_nfc;
+                break;
             default:
                 return null;
         }
