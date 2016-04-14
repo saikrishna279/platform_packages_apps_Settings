@@ -824,6 +824,7 @@
 
     <!-- Hardware keys -->
     <string name="button_keys_title">Hardware Buttons</string>
+    <string name="button_keys_summary">Customize the hardware navigation button actions</string>
     <string name="keys_bindings_title">Key actions</string>
     <string name="keys_enable_custom_title">Enable custom actions</string>
     <string name="keys_enable_custom_summary">Enable custom hardware key actions</string>
