@@ -81,14 +81,13 @@ public class PowerUsageSummary extends PowerUsageBase {
 
     private static final int MENU_BATTERY_STYLE             = Menu.FIRST + 7;
     private static final int SUBMENU_BATTERY_BAR            = Menu.FIRST + 8;
-    private static final int SUBMENU_BATTERY_BAR_LANDSCAPE  = Menu.FIRST + 9;
-    private static final int SUBMENU_BATTERY_CIRCLE         = Menu.FIRST + 10;
-    private static final int SUBMENU_BATTERY_TEXT           = Menu.FIRST + 11;
-    private static final int SUBMENU_BATTERY_HIDDEN         = Menu.FIRST + 12;
-    private static final int MENU_BATTERY_PERCENT           = Menu.FIRST + 13;
-    private static final int SUBMENU_BATTERY_PERCENT_HIDDEN = Menu.FIRST + 14;
-    private static final int SUBMENU_BATTERY_PERCENT_INSIDE = Menu.FIRST + 15;
-    private static final int SUBMENU_BATTERY_PERCENT_NEXT   = Menu.FIRST + 16;
+    private static final int SUBMENU_BATTERY_CIRCLE         = Menu.FIRST + 9;
+    private static final int SUBMENU_BATTERY_TEXT           = Menu.FIRST + 10;
+    private static final int SUBMENU_BATTERY_HIDDEN         = Menu.FIRST + 11;
+    private static final int MENU_BATTERY_PERCENT           = Menu.FIRST + 12;
+    private static final int SUBMENU_BATTERY_PERCENT_HIDDEN = Menu.FIRST + 13;
+    private static final int SUBMENU_BATTERY_PERCENT_INSIDE = Menu.FIRST + 14;
+    private static final int SUBMENU_BATTERY_PERCENT_NEXT   = Menu.FIRST + 15;
 
     private BatteryHistoryPreference mHistPref;
     private PreferenceGroup mAppListGroup;
@@ -169,10 +168,8 @@ public class PowerUsageSummary extends PowerUsageBase {
 
         SubMenu batteryStyle = menu.addSubMenu(1, MENU_BATTERY_STYLE, 1, R.string.battery_style_title);
 
-        batteryStyle.add(1, SUBMENU_BATTERY_BAR, 1, R.string.battery_style_icon_portrait)
+        batteryStyle.add(1, SUBMENU_BATTERY_BAR, 1, R.string.battery_style_icon)
                     .setChecked(selectedIcon == 0);
-        batteryStyle.add(1, SUBMENU_BATTERY_BAR_LANDSCAPE, 2, R.string.battery_style_icon_landscape)
-                    .setChecked(selectedIcon == 5);
         batteryStyle.add(1, SUBMENU_BATTERY_CIRCLE, 3, R.string.battery_style_circle)
                     .setChecked(selectedIcon == 2);
         batteryStyle.add(1, SUBMENU_BATTERY_TEXT, 4, R.string.battery_style_text)
@@ -261,11 +258,6 @@ public class PowerUsageSummary extends PowerUsageBase {
                 item.setChecked(true);
                 Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
-                return true;
-            case SUBMENU_BATTERY_BAR_LANDSCAPE:
-                item.setChecked(true);
-                Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.STATUS_BAR_BATTERY_STYLE, 5);
                 return true;
             case SUBMENU_BATTERY_CIRCLE:
                 item.setChecked(true);
