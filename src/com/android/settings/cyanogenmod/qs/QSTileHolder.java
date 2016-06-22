@@ -155,6 +155,10 @@ public class QSTileHolder {
                 resourceName = "ic_qs_ambientdisplay_on";
                 stringId = R.string.qs_tile_ambient_display;
                 break;
+            case QSConstants.TILE_MUSIC:
+                resourceName = "ic_qs_media_play";
+                stringId = R.string.qs_tile_music;
+                break;
             default:
                 return null;
         }
