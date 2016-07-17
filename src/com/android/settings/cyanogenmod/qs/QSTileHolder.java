@@ -127,6 +127,10 @@ public class QSTileHolder {
                 stringId = R.string.quick_settings_smartbar;
                 stringId = R.string.quick_settings_navigation_bar;
                 break;
+            case QSConstants.TILE_FLOATING:
+                resourceName = "ic_qs_floating_peek";
+                stringId = R.string.qs_tile_floating;
+                break;
             default:
                 return null;
         }

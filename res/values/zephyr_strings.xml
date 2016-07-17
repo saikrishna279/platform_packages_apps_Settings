@@ -484,6 +484,7 @@
     <string name="qs_tile_volume_panel">Volume panel</string>
     <string name="quick_settings_smartbar">SmartBar</string>
     <string name="quick_settings_navigation_bar">Navigation bar</string>
+    <string name="qs_tile_floating">Peek</string>
     <string name="qs_action_delete">Delete</string>
     <string name="qs_action_add">Add</string>
     <string name="qs_action_no_more_tiles">No more tiles available</string>
