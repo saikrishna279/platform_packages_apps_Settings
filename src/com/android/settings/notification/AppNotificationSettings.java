@@ -59,7 +59,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private static final String KEY_PEEKABLE = "peekable";
     private static final String KEY_SENSITIVE = "sensitive";
     private static final String KEY_APP_SETTINGS = "app_settings";
-    private static final String KEY_FLOATING = "floating";
 
     private static final Intent APP_NOTIFICATION_PREFS_CATEGORY_INTENT
             = new Intent(Intent.ACTION_MAIN)
@@ -72,12 +71,10 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
     private SwitchPreference mPriority;
     private SwitchPreference mPeekable;
     private SwitchPreference mSensitive;
-    private SwitchPreference mFloating;
     private AppRow mAppRow;
     private boolean mCreated;
     private boolean mIsSystemPackage;
     private int mUid;
-    private String mPkg;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -111,24 +108,24 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             return;
         }
 
-        mPkg = args != null && args.containsKey(AppInfoBase.ARG_PACKAGE_NAME)
+        final String pkg = args != null && args.containsKey(AppInfoBase.ARG_PACKAGE_NAME)
                 ? args.getString(AppInfoBase.ARG_PACKAGE_NAME)
                 : intent.getStringExtra(Settings.EXTRA_APP_PACKAGE);
         mUid = args != null && args.containsKey(AppInfoBase.ARG_PACKAGE_UID)
                 ? args.getInt(AppInfoBase.ARG_PACKAGE_UID)
                 : intent.getIntExtra(Settings.EXTRA_APP_UID, -1);
-        if (mUid == -1 || TextUtils.isEmpty(mPkg)) {
-            Log.w(TAG, "Missing extras: " + Settings.EXTRA_APP_PACKAGE + " was " + mPkg + ", "
+        if (mUid == -1 || TextUtils.isEmpty(pkg)) {
+            Log.w(TAG, "Missing extras: " + Settings.EXTRA_APP_PACKAGE + " was " + pkg + ", "
                     + Settings.EXTRA_APP_UID + " was " + mUid);
             toastAndFinish();
             return;
         }
 
-        if (DEBUG) Log.d(TAG, "Load details for pkg=" + mPkg + " uid=" + mUid);
+        if (DEBUG) Log.d(TAG, "Load details for pkg=" + pkg + " uid=" + mUid);
         final PackageManager pm = getPackageManager();
-        final PackageInfo info = findPackageInfo(pm, mPkg, mUid);
+        final PackageInfo info = findPackageInfo(pm, pkg, mUid);
         if (info == null) {
-            Log.w(TAG, "Failed to find package info: " + Settings.EXTRA_APP_PACKAGE + " was " + mPkg
+            Log.w(TAG, "Failed to find package info: " + Settings.EXTRA_APP_PACKAGE + " was " + pkg
                     + ", " + Settings.EXTRA_APP_UID + " was " + mUid);
             toastAndFinish();
             return;
@@ -140,7 +137,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         mPriority = (SwitchPreference) findPreference(KEY_PRIORITY);
         mPeekable = (SwitchPreference) findPreference(KEY_PEEKABLE);
         mSensitive = (SwitchPreference) findPreference(KEY_SENSITIVE);
-        mFloating = (SwitchPreference) findPreference(KEY_FLOATING);
 
         mAppRow = mBackend.loadAppRow(pm, info.applicationInfo);
 
@@ -154,16 +150,15 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         mPriority.setChecked(mAppRow.priority);
         mPeekable.setChecked(mAppRow.peekable);
         mSensitive.setChecked(mAppRow.sensitive);
-        mFloating.setChecked(mAppRow.floating);
 
         mBlock.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean banned = (Boolean) newValue;
                 if (banned) {
-                    MetricsLogger.action(getActivity(), MetricsLogger.ACTION_BAN_APP_NOTES, mPkg);
+                    MetricsLogger.action(getActivity(), MetricsLogger.ACTION_BAN_APP_NOTES, pkg);
                 }
-                final boolean success =  mBackend.setNotificationsBanned(mPkg, mUid, banned);
+                final boolean success =  mBackend.setNotificationsBanned(pkg, mUid, banned);
                 if (success) {
                     updateDependents(banned);
                 }
@@ -175,7 +170,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean priority = (Boolean) newValue;
-                return mBackend.setHighPriority(mPkg, mUid, priority);
+                return mBackend.setHighPriority(pkg, mUid, priority);
             }
         });
 
@@ -183,15 +178,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean peekable = (Boolean) newValue;
-                return mBackend.setPeekable(mPkg, mUid, peekable);
-            }
-        });
-
-        mFloating.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                final boolean floating = (Boolean) newValue;
-                return mBackend.setFloating(mPkg, mUid, floating);
+                return mBackend.setPeekable(pkg, mUid, peekable);
             }
         });
 
@@ -199,7 +186,7 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 final boolean sensitive = (Boolean) newValue;
-                return mBackend.setSensitive(mPkg, mUid, sensitive);
+                return mBackend.setSensitive(pkg, mUid, sensitive);
             }
         });
 
@@ -237,7 +224,6 @@ public class AppNotificationSettings extends SettingsPreferenceFragment {
         setVisible(mBlock, !mIsSystemPackage);
         setVisible(mPriority, mIsSystemPackage || !banned);
         setVisible(mPeekable, mIsSystemPackage || !banned && headsUpEnabled);
-        setVisible(mFloating, mIsSystemPackage || !banned);
         setVisible(mSensitive, mIsSystemPackage || !banned && lockscreenSecure
                 && lockscreenNotificationsEnabled && allowPrivate);
     }
