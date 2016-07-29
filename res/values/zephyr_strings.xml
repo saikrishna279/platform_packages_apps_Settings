@@ -83,6 +83,7 @@
     <string name="allow_lights_title">Allow notification lights in do not disturb mode</string>
 
     <!-- Zephyr Settings menus -->
+    <string name="header_category_custom">Customization</string>
     <string name="zephyr_settings_title">The Vortex</string>
     <string name="keywords_zephyr">ZephyrOS</string>
     <!-- Lock screen settings -->

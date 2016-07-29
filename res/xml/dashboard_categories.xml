@@ -87,31 +87,40 @@
                 />
     </dashboard-category>
 
-    <!-- DEVICE -->
+    <!-- Customization -->
     <dashboard-category
-            android:id="@+id/device_section"
-            android:key="@string/category_key_device"
-            android:title="@string/header_category_device" >
+            android:id="@+id/custom_section"
+            android:title="@string/header_category_custom" >
 
-
-	<!-- ZephyrOS settings -->
+    <!-- ZephyrOS settings -->
         <dashboard-tile
                 android:id="@+id/zephyr_settings"
                 android:title="@string/zephyr_settings_title"
                 android:fragment="com.android.settings.zephyr.AdditionalSettings"
                 android:icon="@drawable/ic_vortex" />
-
-        <!-- Viper4Android -->
+       
+    <!-- Layers -->
         <dashboard-tile
-            android:id="@+id/viper_settings"
-            android:title="@string/viper_settings_title"
-            android:icon="@drawable/ic_broken_equalizer" >
-            <intent
-               android:action="android.intent.action.MAIN"
-               android:targetClass="com.vipercn.viper4android_v2.activity.ViPER4Android"
-               android:targetPackage="com.vipercn.viper4android_v2" />
+                android:id="@+id/substratum"
+                android:icon="@drawable/ic_settings_substratum"
+                android:title="@string/substratum_title">     
+        <intent
+                android:action="android.intent.action.MAIN"
+                android:targetPackage="projekt.substratum"
+                android:targetClass="projekt.substratum.LaunchActivity" />
+    </dashboard-tile> 
+
+    <!-- Gestures -->
+        <dashboard-tile
+                android:id="@+id/device_specific_gesture_settings"
+                android:title="@string/gesture_settings_title"
+                android:icon="@drawable/ic_settings_gestures">
+         <intent
+                android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
+                android:targetPackage="com.cyanogenmod.settings.device"
+                android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
         </dashboard-tile>
-        
+
         <!-- Kernel Auditor App -->
         <dashboard-tile
                 android:id="@+id/kernel_auditor"
@@ -123,16 +132,24 @@
                     android:targetClass="com.grarak.kerneladiutor.MainActivity" />
         </dashboard-tile>
 
-        <!-- Gestures -->
+        <!-- Viper4Android -->
         <dashboard-tile
-                android:id="@+id/device_specific_gesture_settings"
-                android:title="@string/gesture_settings_title"
-                android:icon="@drawable/ic_settings_gestures">
-         <intent
-                android:action="com.cyanogenmod.action.LAUNCH_TOUCHSCREEN_GESTURE_SETTINGS"
-                android:targetPackage="com.cyanogenmod.settings.device"
-                android:targetClass="com.cyanogenmod.settings.device.TouchscreenGestureSettings" />
+            android:id="@+id/viper_settings"
+            android:title="@string/viper_settings_title"
+            android:icon="@drawable/ic_broken_equalizer" >
+            <intent
+               android:action="android.intent.action.MAIN"
+               android:targetClass="com.vipercn.viper4android_v2.activity.ViPER4Android"
+               android:targetPackage="com.vipercn.viper4android_v2" />
         </dashboard-tile>
+
+    </dashboard-category>
+
+    <!-- DEVICE -->
+    <dashboard-category
+            android:id="@+id/device_section"
+            android:key="@string/category_key_device"
+            android:title="@string/header_category_device" >
 
         <!-- Home -->
         <dashboard-tile
@@ -213,23 +230,12 @@
             <intent android:action="com.android.settings.MANUFACTURER_APPLICATION_SETTING" />
         </dashboard-tile>
    </dashboard-category>
- 
-    <!-- PERSONAL -->
-    <dashboard-category
-            android:id="@+id/personal_section"
-            android:key="@string/category_key_personal"
-            android:title="@string/header_category_personal" >
 
-        <!-- Layers -->
-        <dashboard-tile
-                android:id="@+id/substratum"
-                android:icon="@drawable/ic_settings_substratum"
-                android:title="@string/substratum_title">     
-		<intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="projekt.substratum"
-                android:targetClass="projekt.substratum.LaunchActivity" />
-	</dashboard-tile> 
+        <!-- PERSONAL -->
+        <dashboard-category
+                android:id="@+id/personal_section"
+                android:key="@string/category_key_personal"
+                android:title="@string/header_category_personal" >
 
        <!-- Location -->
         <dashboard-tile
