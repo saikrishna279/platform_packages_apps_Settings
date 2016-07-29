@@ -56,5 +56,13 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 <Preference style="?android:preferenceInformationStyle"
                 android:title="@string/name_12" />
 
+<Preference style="?android:preferenceInformationStyle"
+                android:title="@string/name_13" />
+
+<Preference style="?android:preferenceInformationStyle"
+                android:title="@string/name_14" />
+
+<Preference style="?android:preferenceInformationStyle"
+                android:title="@string/name_15" />
 </PreferenceScreen>
 

@@ -420,7 +420,10 @@
     <string name="name_9">CyanogenMod</string>
     <string name="name_10">AOSPB</string>
     <string name="name_11">SAOSP-M</string>
-    <string name="name_12">AOSP-RRO(base rom)</string>
+    <string name="name_12">AOSP-OMS(base rom)</string>
+    <string name="name_13">DirtyUnicorns[DUI]</string>
+    <string name="name_14">GZR</string>
+    <string name="name_15">TeamSubstratum</string>
     <string name="credits">Buy them a beer!!!</string>
 
     <string name="notification_drawer_title">Notification drawer</string>
