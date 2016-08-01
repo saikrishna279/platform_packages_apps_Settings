@@ -894,4 +894,8 @@
     <string name="carrier_label_hide_label_title">Hide</string>
     <string name="carrier_label_hide_label_summary">Enable to choose a number of visible notification icons to hide the (custom) carrier label on the status bar</string>
     <string name="carrier_label_number_of_notification_icons_title">Number of notification icons</string>
+
+    <!-- Task Manager -->
+    <string name="enable_task_manager_title">Task Manager</string>
+    <string name="enable_task_manager_summary">Enable/Disable action for the task manager button in the expanded statusbar area</string>
 </resources>
