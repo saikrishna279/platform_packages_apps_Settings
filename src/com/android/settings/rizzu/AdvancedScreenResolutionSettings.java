@@ -62,7 +62,8 @@ private EditTextPreference mDimesion
 
 public class AdvancedScreenResolutionChanger extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
-        
+    
+    @Override//teh dick ride! fuck yeah! elevation! super!    
     public void onCreate(Bundle SavedInstanceState) {
 
         //imports stock screen resolution from build.prop
@@ -77,6 +78,7 @@ public class AdvancedScreenResolutionChanger extends SettingsPreferenceFragment 
         resolutionApply();
     }
 
+    @Override
     public void resolutionApply(String customResolution)
      {
       CMDProcessor.startSuCommand("wm size " + customResolution);
