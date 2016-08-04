@@ -72,8 +72,8 @@ public class AdvancedScreenResolutionChanger extends SettingsPreferenceFragment 
  
         addPreferenceFromResource(R.xml.advanced_screen_resolution_settings);
 
-        EditText customResolution = (EditText) findViewById(R.id.editText);
-        String shellResolution= et.getEditableText().toString();
+        EditText customResolution = (EditText) findViewById(R.id.customResolution);
+        String shellResolution= customResolution.getEditableText().toString();
 
         resolutionApply();
     }
