@@ -25,7 +25,7 @@
 
         <PreferenceScreen
         android:key="screen_resolution"
-        android:title="@string/adavnced_screen_settings_resolution"
+        android:title="@string/advanced_screen_settings_resolution"
         android:summary="@string/advanced_screen_settings_resolution_summary"
         android:fragment="com.android.settings.rizzu.AdvancedScreenResolutionSettings">
         </PreferenceScreen>
