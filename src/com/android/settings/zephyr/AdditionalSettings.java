@@ -21,6 +21,7 @@ import com.android.settings.zephyr.StatusBarSettings;
 import com.android.settings.zephyr.NavigationBarSettings;
 import com.android.settings.zephyr.LockScreenSettings;
 import com.android.settings.zephyr.PagerSlidingTabStrip;
+import com.android.settings.zephyr.AdvancedScreenDisplaySettings;
 import com.android.settings.cyanogenmod.NotificationDrawerSettings;
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -82,10 +83,11 @@ public class AdditionalSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-	    frags[0] = new StatusBarSettings();
-            frags[1] = new NavigationBarSettings();
-            frags[2] = new LockScreenSettings();      
-	    frags[3] = new NotificationDrawerSettings();
+            frags[0] = new AdvancedScreenDisplaySetings();
+	    frags[1] = new StatusBarSettings();
+            frags[2] = new NavigationBarSettings();
+            frags[3] = new LockScreenSettings();      
+	    frags[4] = new NotificationDrawerSettings();
         }
 
         @Override
@@ -107,6 +109,7 @@ public class AdditionalSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
+                    getstring(R.string.advanced_screen_display_settings_title),
 		    getString(R.string.status_bar_title),
                     getString(R.string.navigation_bar_title),
                     getString(R.string.lock_screen_title),

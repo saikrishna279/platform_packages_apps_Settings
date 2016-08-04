@@ -86,6 +86,16 @@
     <string name="header_category_custom">Customization</string>
     <string name="zephyr_settings_title">The Vortex</string>
     <string name="keywords_zephyr">ZephyrOS</string>
+
+    <!--Screen Display Settings-->
+    <string name="advanced_screen_display_settings_title">Advanced Display Settings</string>
+    <string name="advanced_screen_settings_category">DPI and Resolution</string>
+    <string name="adavnced_screen_settings_resolution">Screen Resolution</string>
+    <string name="advanced_screen_settings_resolution_summary">Change your screen resolution to enhance your visual experience!</string>
+    <string name="stream_in_screen_resolution">Enter Screen Resolution</string>
+    <string name="stream_in_screen_resolution_description">Enter your desired screen resolution is this format - ("width"x"height") excluding the brackets and the double apsotrophe!
+                    Example - 1080x1920 - including the 'x' in between the dimensions!</string>
+
     <!-- Lock screen settings -->
     <string name="lock_screen_title">Lock screen</string>
     <!-- Status bar-->
