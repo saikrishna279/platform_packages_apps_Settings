@@ -95,6 +95,9 @@
     <string name="stream_in_screen_resolution">Enter Screen Resolution</string>
     <string name="stream_in_screen_resolution_description">Enter your desired screen resolution is this format - (\'width\'x\'height\') excluding the brackets and the apsotrophe!\n\nExample - 1080x1920 - including the \'x\' in between the dimensions!</string>
 
+    <!--ILLUMINATI-->
+    <string name="screen_display_settings_title">Display</string>
+
     <!-- Lock screen settings -->
     <string name="lock_screen_title">Lock screen</string>
     <!-- Status bar-->
