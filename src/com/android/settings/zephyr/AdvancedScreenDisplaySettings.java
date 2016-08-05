@@ -7,7 +7,6 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
-
 import com.android.internal.logging.MetricsLogger;
 
 import com.android.internal.util.slim.DeviceUtils;

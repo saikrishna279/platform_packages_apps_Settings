@@ -83,7 +83,7 @@ public class AdditionalSettings extends SettingsPreferenceFragment {
 
         public StatusBarAdapter(FragmentManager fm) {
             super(fm);
-            frags[0] = new AdvancedScreenDisplaySetings();
+            frags[0] = new AdvancedScreenDisplaySettings();
 	    frags[1] = new StatusBarSettings();
             frags[2] = new NavigationBarSettings();
             frags[3] = new LockScreenSettings();      
@@ -109,7 +109,7 @@ public class AdditionalSettings extends SettingsPreferenceFragment {
     private String[] getTitles() {
         String titleString[];
         titleString = new String[]{
-                    getstring(R.string.advanced_screen_display_settings_title),
+                    getString(R.string.advanced_screen_display_settings_title),
 		    getString(R.string.status_bar_title),
                     getString(R.string.navigation_bar_title),
                     getString(R.string.lock_screen_title),
