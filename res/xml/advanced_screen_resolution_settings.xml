@@ -18,9 +18,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/advanced_screen_settings_resolution">
 
-    <EditTextPreference
+    <PreferenceScreen
         android:key="advanced_screen_resplution_settings"
         android:title="@string/stream_in_screen_resolution"
-        android:id="@+id/customResolution"
         android:hint="@string/stream_in_screen_resolution_description"/>
 </PreferenceScreen>
