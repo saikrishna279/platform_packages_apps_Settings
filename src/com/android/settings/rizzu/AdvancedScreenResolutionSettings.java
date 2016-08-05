@@ -88,9 +88,14 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
 		// preference changes here
         return false;
     }
-    @Override
+
+/*    @Override
     private void resolutionApply(String customResolution) {
      CMDProcessor.runSuCommand("wm size " + customResolution);
+    }
+*/
+    public static void resolutionApply(String customResolution) {
+     CMDProcessor.startSuCommand("wm size " + customResolution);
     }
 
     @Override
