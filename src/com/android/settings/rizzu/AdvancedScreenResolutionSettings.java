@@ -29,12 +29,12 @@ import android.os.Handler;
 import android.os.PowerManager;
 import android.os.SystemProperties;
 
+import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
-import android.preference.Preference.OnPreferenceChangeListener;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
-import android.preference.EditTextPreference;
 
 import android.text.Editable;
 import android.util.Log;
@@ -65,8 +65,8 @@ import com.android.settings.SettingsPreferenceFragment;
 public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
     
-    @Override//teh dick ride! fuck yeah! elevation! super!    
-    public void onCreate(Bundle SavedInstanceState) {
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferenceFromResource(R.xml.advanced_screen_resolution_settings);
