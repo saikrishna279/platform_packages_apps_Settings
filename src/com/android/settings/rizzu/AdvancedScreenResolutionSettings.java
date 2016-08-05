@@ -101,7 +101,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
             alert.setNegativeButton(getString(android.R.string.cancel), null);
         alert.show();
         
-        CMDProcessor.startSuCommand("su wm size " + mCustomResolution);
+        CMDProcessor.startSuCommand("su wm size " + customResolution);
     }
 
 //    private void updateResolution() {
