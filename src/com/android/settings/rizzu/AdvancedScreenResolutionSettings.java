@@ -63,6 +63,11 @@ import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+
 public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
     
@@ -76,10 +81,20 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         String currentResolution = SystemProperties.get("ro.wm.screen_res");
         String resetResolution = SystemProperties.get("ro.wm.screen_res");
 
-        EditText customResolution=(EditText)context.findViewById(R.id.customResolution);
-        String shellResolution=customResolution.getText().toString();
+        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+        alert.setTitle(R.string.stream_in_screen_resolution);
+        alert.setMessage(R.string.stream_in_screen_resolution_description);
 
-        CMDProcessor.startSuCommand("wm size " + customResolution);
+        final EditText input = new EditText(getActivity());
+        input.setText("");
+        input.setSelection(input.getText().length());
+        alert.setView(input);
+        alert.setPositiveButton(getString(android.R.string.ok),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        String customResolution = ((Spannable) input.getText()).toString().trim();
+                        }
+        CMDProcessor.runSuCommand("wm size " + customResolution);
     }
 
     @Override
