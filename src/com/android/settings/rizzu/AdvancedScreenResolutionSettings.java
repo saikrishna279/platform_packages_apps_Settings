@@ -77,7 +77,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.advanced_screen_resolution_settings);
 
-        final ContentResolver resolver = getActivity().getContentResolver();
+        //final ContentResolver resolver = getActivity().getContentResolver();
 
         //imports stock screen resolution from build.prop
         String currentResolution = SystemProperties.get("ro.wm.screen_res");
@@ -95,19 +95,19 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String customResolution = ((Spannable) input.getText()).toString().trim();
-                        Settings.System.putString(resolver, Settings.System.CUSTOM_RESOLUTION, customResolution);
+                       // Settings.System.putString(resolver, Settings.System.CUSTOM_RESOLUTION, customResolution);
                 }
             });
             alert.setNegativeButton(getString(android.R.string.cancel), null);
         alert.show();
         
-        updateResolution();
-    }
-
-    private void updateResolution() {
-        mCustomResolution = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_RESOLUTION);
         CMDProcessor.startSuCommand("su wm size " + mCustomResolution);
     }
+
+//    private void updateResolution() {
+//        mCustomResolution = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_RESOLUTION);
+//        CMDProcessor.startSuCommand("su wm size " + mCustomResolution);
+//    }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
