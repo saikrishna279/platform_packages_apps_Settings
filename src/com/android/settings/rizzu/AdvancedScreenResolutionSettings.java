@@ -64,6 +64,14 @@ import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
+@SuppressWarnings({
+        "UnusedDeclaration",
+        "MethodWithMultipleReturnPoints",
+        "ReturnOfNull",
+        "NestedAssignment",
+        "DynamicRegexReplaceableByCompiledPattern",
+        "BreakStatement"})
+
 public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
     
