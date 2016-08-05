@@ -81,9 +81,14 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
       CMDProcessor.runSuCommand("wm size " + customResolution);
      }
 
-     @Override
-     protected int getMetricsCategory() {
-         return InstrumentedFragment.LOCK_SCREEN;
-     }
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+ 		return super.onPreferenceTreeClick(preferenceScreen, preference);
+    	}
+
+    @Override
+    protected int getMetricsCategory() {
+        return MetricsLogger.SCREEN_RESOLUTION_CHANGER_SETTINGS;
+    }
 }
 
