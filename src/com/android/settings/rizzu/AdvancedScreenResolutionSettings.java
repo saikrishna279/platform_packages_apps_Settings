@@ -69,7 +69,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
 
     public static final String CUSTOM_RESOLUTION="custom_resolution";
     
-    private String mCustomResolution;
+    public String customResolution;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
