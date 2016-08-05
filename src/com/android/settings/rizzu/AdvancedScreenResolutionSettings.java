@@ -68,7 +68,7 @@ import com.android.settings.SettingsPreferenceFragment;
 public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
 
-    private static final String CUSTOM_RESOLUTION;
+    private static final String CUSTOM_RESOLUTION="custom_resolution";
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,7 +92,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String customResolution = ((Spannable) input.getText()).toString().trim();
-                        CUSTOM_RESOLUTION = customResolution
+                        CUSTOM_RESOLUTION = customResolution;
                 }
             });
             alert.setNegativeButton(getString(android.R.string.cancel), null);
