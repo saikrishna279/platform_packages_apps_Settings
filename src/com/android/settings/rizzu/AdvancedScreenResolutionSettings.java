@@ -84,7 +84,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         alert.setTitle(R.string.stream_in_screen_resolution);
         alert.setMessage(R.string.stream_in_screen_resolution_description);
 
-        final EditText input = new EditText(getActivity());
+        EditText input = new EditText(getActivity());
         input.setText("");
         input.setSelection(input.getText().length());
         alert.setView(input);
