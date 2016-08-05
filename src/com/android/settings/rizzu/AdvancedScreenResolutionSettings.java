@@ -58,11 +58,11 @@ import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class AdvancedScreenResolutionChanger extends SettingsPreferenceFragment implements
+public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
     
     @Override//teh dick ride! fuck yeah! elevation! super!    
-    public void onCreate(Bundle SavedInstanceState) {
+    private void onCreate(Bundle SavedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferenceFromResource(R.xml.advanced_screen_resolution_settings);
 

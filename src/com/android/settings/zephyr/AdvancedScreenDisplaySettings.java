@@ -29,7 +29,7 @@ import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-public class ScreenDisplaySettings extends SettingsPreferenceFragment implements
+public class AdvancedScreenDisplaySettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
 
                  // shit starts now!
