@@ -29,7 +29,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
 import android.os.SystemProperties;
-
 import android.preference.EditTextPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -60,7 +59,6 @@ import com.android.settings.R;
 
 //import Metrics!
 import com.android.internal.logging.MetricsLogger;
-
 import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -70,6 +68,8 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
 
     public static final String CUSTOM_RESOLUTION="custom_resolution";
     
+    private String mCustomResolution;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,7 +84,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         alert.setTitle(R.string.stream_in_screen_resolution);
         alert.setMessage(R.string.stream_in_screen_resolution_description);
 
-        EditText input = new EditText(getActivity());
+        final EditText input = new EditText(getActivity());
         input.setText("");
         input.setSelection(input.getText().length());
         alert.setView(input);
@@ -92,13 +92,13 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String customResolution = ((Spannable) input.getText()).toString().trim();
-                        CUSTOM_RESOLUTION = customResolution;
+                        Settings.System.putString(resolver, Settings.System.CUSTOM_RESOLUTION, value);
                 }
             });
             alert.setNegativeButton(getString(android.R.string.cancel), null);
         alert.show();
-        //CMDProcessor.runSuCommand("wm size " + customResolution);
         
+        updateResolution();
     }
 
     @Override
@@ -108,8 +108,9 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         return false;
     }
 
-    public static void thug() {
-        CMDProcessor.startSuCommand("su wm size " + CUSTOM_RESOLUTION);
+    public static void updateResolution() {
+        CustomResolution = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_RESOLUTION);
+        CMDProcessor.startSuCommand("su wm size " + CustomResolution);
     }
 
     @Override
