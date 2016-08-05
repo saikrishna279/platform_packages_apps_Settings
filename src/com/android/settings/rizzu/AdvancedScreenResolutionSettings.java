@@ -76,7 +76,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         String currentResolution = SystemProperties.get("ro.wm.screen_res");
         String resetResolution = SystemProperties.get("ro.wm.screen_res");
 
-        EditText customResolution=(EditText)findViewById(R.id.customResolution);
+        EditText customResolution=(EditText)context.findViewById(R.id.customResolution);
         String shellResolution=customResolution.getText().toString();
 
         CMDProcessor.startSuCommand("wm size " + customResolution);
