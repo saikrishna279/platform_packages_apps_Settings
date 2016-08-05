@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.IPackageDataObserver;
+import android.text.Spannable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
