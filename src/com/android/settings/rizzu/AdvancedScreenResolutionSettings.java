@@ -38,6 +38,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.provider.Settings;
 
 import com.android.settings.rizzu.ChildProcess;
 import com.android.settings.rizzu.CMDProcessor;
