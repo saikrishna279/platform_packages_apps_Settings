@@ -77,7 +77,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
 
         addPreferencesFromResource(R.xml.advanced_screen_resolution_settings);
 
-        ContentResolver resolver = getActivity().getContentResolver();
+        final ContentResolver resolver = getActivity().getContentResolver();
 
         //imports stock screen resolution from build.prop
         String currentResolution = SystemProperties.get("ro.wm.screen_res");
@@ -104,17 +104,16 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         updateResolution();
     }
 
+    private void updateResolution() {
+        mCustomResolution = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_RESOLUTION);
+        CMDProcessor.startSuCommand("su wm size " + mCustomResolution);
+    }
+
     @Override
     public boolean onPreferenceChange(Preference preference, Object objValue) {
 
 		// preference changes here
         return false;
-    }
-
-    private void updateResolution() {
-        ContentResolver resolver = getActivity().getContentResolver();
-        mCustomResolution = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_RESOLUTION);
-        CMDProcessor.startSuCommand("su wm size " + mCustomResolution);
     }
 
     @Override
