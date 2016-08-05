@@ -95,7 +95,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String customResolution = ((Spannable) input.getText()).toString().trim();
-                        Settings.System.putString(resolver, Settings.System.CUSTOM_RESOLUTION, value);
+                        Settings.System.putString(resolver, Settings.System.CUSTOM_RESOLUTION, customResolution);
                 }
             });
             alert.setNegativeButton(getString(android.R.string.cancel), null);
