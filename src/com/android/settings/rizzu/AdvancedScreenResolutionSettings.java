@@ -93,7 +93,8 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
             });
             alert.setNegativeButton(getString(android.R.string.cancel), null);
         alert.show();
-        CMDProcessor.runSuCommand("wm size " + customResolution);
+        //CMDProcessor.runSuCommand("wm size " + customResolution);
+        thug();
     }
 
     @Override
@@ -102,11 +103,11 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
 		// preference changes here
         return false;
     }
-/*    @Override
-    public static void resolutionApply(String customResolution) {
-     CMDProcessor.startSuCommand("wm size " + customResolution);
+
+    public static void thug(String customResolution) {
+        CMDProcessor.startSuCommand("wm size " + customResolution);
     }
-*/
+
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
  		return super.onPreferenceTreeClick(preferenceScreen, preference);
