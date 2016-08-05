@@ -64,6 +64,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
     @Override//teh dick ride! fuck yeah! elevation! super!    
     private void onCreate(Bundle SavedInstanceState) {
         super.onCreate(savedInstanceState);
+
         addPreferenceFromResource(R.xml.advanced_screen_resolution_settings);
 
         //imports stock screen resolution from build.prop
@@ -76,10 +77,16 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         resolutionApply();
     }
 
-     @Override
-     private void resolutionApply(String customResolution) {
-      CMDProcessor.runSuCommand("wm size " + customResolution);
-     }
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object objValue) {
+
+		// preference changes here
+        return false;
+    }
+    @Override
+    private void resolutionApply(String customResolution) {
+     CMDProcessor.runSuCommand("wm size " + customResolution);
+    }
 
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
