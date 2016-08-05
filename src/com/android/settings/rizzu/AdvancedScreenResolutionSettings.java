@@ -70,7 +70,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferenceFromResource(R.xml.advanced_screen_resolution_settings);
+        addPreferencesFromResource(R.xml.advanced_screen_resolution_settings);
 
         //imports stock screen resolution from build.prop
         String currentResolution = SystemProperties.get("ro.wm.screen_res");
