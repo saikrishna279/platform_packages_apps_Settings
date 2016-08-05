@@ -62,6 +62,7 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
+import android.content.ContentResolver;
 
 public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
@@ -75,6 +76,8 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.advanced_screen_resolution_settings);
+
+        ContentResolver resolver = getActivity().getContentResolver();
 
         //imports stock screen resolution from build.prop
         String currentResolution = SystemProperties.get("ro.wm.screen_res");
@@ -108,9 +111,9 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         return false;
     }
 
-    public static void updateResolution() {
-        CustomResolution = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_RESOLUTION);
-        CMDProcessor.startSuCommand("su wm size " + CustomResolution);
+    private void updateResolution() {
+        mCustomResolution = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_RESOLUTION);
+        CMDProcessor.startSuCommand("su wm size " + mCustomResolution);
     }
 
     @Override
