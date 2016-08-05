@@ -76,8 +76,8 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         String currentResolution = SystemProperties.get("ro.wm.screen_res");
         String resetResolution = SystemProperties.get("ro.wm.screen_res");
 
-        EditText customResolution = (EditText) findViewById(R.id.customResolution);
-        String shellResolution= customResolution.getEditableText().toString();
+        EditText customResolution=(EditText)findViewById(R.id.customResolution);
+        String shellResolution=customResolution.getText().toString();
 
         resolutionApply();
     }
