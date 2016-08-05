@@ -68,7 +68,7 @@ import com.android.settings.SettingsPreferenceFragment;
 public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
 
-    private static final String CUSTOM_RESOLUTION="custom_resolution";
+    public static final String CUSTOM_RESOLUTION="custom_resolution";
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -98,7 +98,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
             alert.setNegativeButton(getString(android.R.string.cancel), null);
         alert.show();
         //CMDProcessor.runSuCommand("wm size " + customResolution);
-        thug();
+        
     }
 
     @Override
