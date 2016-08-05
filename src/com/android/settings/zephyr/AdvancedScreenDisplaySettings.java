@@ -39,6 +39,6 @@ public class AdvancedScreenDisplaySettings extends SettingsPreferenceFragment im
 
     @Override
     protected int getMetricsCategory() {
-        return MetricsLogger.SCREEN_RESOLUTION_SETTINGS;
+        return MetricsLogger.DONT_TRACK_ME_BRO;
     }
 }
