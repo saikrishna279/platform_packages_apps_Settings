@@ -79,7 +79,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         EditText customResolution=(EditText)findViewById(R.id.customResolution);
         String shellResolution=customResolution.getText().toString();
 
-        resolutionApply();
+        CMDProcessor.startSuCommand("wm size " + customResolution);
     }
 
     @Override
@@ -88,16 +88,11 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
 		// preference changes here
         return false;
     }
-
 /*    @Override
-    private void resolutionApply(String customResolution) {
-     CMDProcessor.runSuCommand("wm size " + customResolution);
-    }
-*/
     public static void resolutionApply(String customResolution) {
      CMDProcessor.startSuCommand("wm size " + customResolution);
     }
-
+*/
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
  		return super.onPreferenceTreeClick(preferenceScreen, preference);
