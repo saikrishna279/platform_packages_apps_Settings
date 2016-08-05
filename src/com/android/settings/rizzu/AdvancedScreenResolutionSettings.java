@@ -35,6 +35,7 @@ import android.preference.Preference;
 import android.preference.PreferenceCategory;
 import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
+import android.preference.Preference.OnPreferenceChangeListener;
 
 import android.text.Editable;
 import android.util.Log;
