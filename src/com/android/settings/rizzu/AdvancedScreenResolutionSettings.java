@@ -68,7 +68,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
 
         //imports stock screen resolution from build.prop
         String currentResolution = SystemProperties.get("ro.wm.screen_res");
-        String resetResolution = SystemPropertied.get("ro.wm.screen_res");
+        String resetResolution = SystemProperties.get("ro.wm.screen_res");
 
         EditText customResolution = (EditText) findViewById(R.id.customResolution);
         String shellResolution= customResolution.getEditableText().toString();
@@ -76,9 +76,8 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         resolutionApply();
     }
 
-    @Override
-    private void resolutionApply(String customResolution)
-     {
+     @Override
+     private void resolutionApply(String customResolution) {
       CMDProcessor.runSuCommand("wm size " + customResolution);
      }
 
