@@ -1,4 +1,4 @@
-<!-- Copyright (C) 2016 Sai Krishna <androidwall.nrt@gmail.com>
+/*   Copyright (C) 2016 Sai Krishna <androidwall.nrt@gmail.com>
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -11,7 +11,7 @@
      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
      See the License for the specific language governing permissions and
      limitations under the License.
--->
+*/
 
 package com.settings.android.settings.rizzu;
 
@@ -42,8 +42,8 @@ import android.widget.EditText;
 import com.android.settings.rizzu.ChildProcess;
 import com.android.settings.rizzu.CMDProcessor;
 import com.android.settings.rizzu.CommandResult;
-import com.android.settings.rizzu.Helper;
-import com.android.settings.rizzu.AbstractAsyncSuCMDProcessor
+import com.android.settings.rizzu.Helpers;
+import com.android.settings.rizzu.AbstractAsyncSuCMDProcessor;
 
 //imports necessary shit!
 import android.os.SystemProperties;
@@ -58,19 +58,17 @@ import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-private EditTextPreference mDimesion
-
 public class AdvancedScreenResolutionChanger extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
     
     @Override//teh dick ride! fuck yeah! elevation! super!    
     public void onCreate(Bundle SavedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferenceFromResource(R.xml.advanced_screen_resolution_settings);
 
         //imports stock screen resolution from build.prop
         String currentResolution = SystemProperties.get("ro.wm.screen_res");
         String resetResolution = SystemPropertied.get("ro.wm.screen_res");
- 
-        addPreferenceFromResource(R.xml.advanced_screen_resolution_settings);
 
         EditText customResolution = (EditText) findViewById(R.id.customResolution);
         String shellResolution= customResolution.getEditableText().toString();
@@ -79,9 +77,9 @@ public class AdvancedScreenResolutionChanger extends SettingsPreferenceFragment 
     }
 
     @Override
-    public void resolutionApply(String customResolution)
+    private void resolutionApply(String customResolution)
      {
-      CMDProcessor.startSuCommand("wm size " + customResolution);
+      CMDProcessor.runSuCommand("wm size " + customResolution);
      }
 
      @Override

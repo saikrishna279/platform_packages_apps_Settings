@@ -64,7 +64,7 @@ public abstract class AbstractAsyncSuCMDProcessor extends AsyncTask<String, Void
 
         // conditionally enforce mounting
         if (mMountSystem) {
-            DensityHelpers.getMount("rw");
+            Helpers.getMount("rw");
         }
         try {
             // process all commands ***DO NOT SEND null OR ""; you have been warned***
@@ -80,7 +80,7 @@ public abstract class AbstractAsyncSuCMDProcessor extends AsyncTask<String, Void
         // always unmount
         } finally {
             if (mMountSystem)
-                DensityHelpers.getMount("ro");
+                Helpers.getMount("ro");
         }
         // return the stdout from the command
         return stdout;
