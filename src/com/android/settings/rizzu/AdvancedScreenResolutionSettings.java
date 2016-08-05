@@ -62,7 +62,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
 	OnPreferenceChangeListener {
     
     @Override//teh dick ride! fuck yeah! elevation! super!    
-    private void onCreate(Bundle SavedInstanceState) {
+    public void onCreate(Bundle SavedInstanceState) {
         super.onCreate(savedInstanceState);
 
         addPreferenceFromResource(R.xml.advanced_screen_resolution_settings);
