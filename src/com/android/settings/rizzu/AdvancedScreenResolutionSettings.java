@@ -112,6 +112,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
     }
 
     private void updateResolution() {
+        ContentResolver resolver = getActivity().getContentResolver();
         mCustomResolution = Settings.System.getString(getActivity().getContentResolver(), Settings.System.CUSTOM_RESOLUTION);
         CMDProcessor.startSuCommand("su wm size " + mCustomResolution);
     }
