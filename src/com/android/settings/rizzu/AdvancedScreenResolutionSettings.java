@@ -56,6 +56,7 @@ import android.os.SystemProperties;
 
 //import settings provider
 import android.provider.Settings;
+import com.android.settings.R;
 
 //import Metrics!
 import com.android.internal.logging.MetricsLogger;
@@ -64,16 +65,10 @@ import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-@SuppressWarnings({
-        "UnusedDeclaration",
-        "MethodWithMultipleReturnPoints",
-        "ReturnOfNull",
-        "NestedAssignment",
-        "DynamicRegexReplaceableByCompiledPattern",
-        "BreakStatement"})
-
 public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
+
+    private static final String CUSTOM_RESOLUTION;
     
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -97,6 +92,7 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String customResolution = ((Spannable) input.getText()).toString().trim();
+                        CUSTOM_RESOLUTION = customResolution
                 }
             });
             alert.setNegativeButton(getString(android.R.string.cancel), null);
@@ -112,8 +108,8 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
         return false;
     }
 
-    public static void thug(String customResolution) {
-        CMDProcessor.startSuCommand("wm size " + customResolution);
+    public static void thug() {
+        CMDProcessor.startSuCommand("su wm size " + CUSTOM_RESOLUTION);
     }
 
     @Override
