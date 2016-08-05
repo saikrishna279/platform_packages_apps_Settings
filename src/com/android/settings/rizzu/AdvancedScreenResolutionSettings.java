@@ -63,11 +63,6 @@ import com.android.internal.util.slim.DeviceUtils;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 
-import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-
 public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment implements
 	OnPreferenceChangeListener {
     
@@ -93,7 +88,10 @@ public class AdvancedScreenResolutionSettings extends SettingsPreferenceFragment
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String customResolution = ((Spannable) input.getText()).toString().trim();
-                        }
+                }
+            });
+            alert.setNegativeButton(getString(android.R.string.cancel), null);
+        alert.show();
         CMDProcessor.runSuCommand("wm size " + customResolution);
     }
 
